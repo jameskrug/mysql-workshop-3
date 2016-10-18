@@ -1,0 +1,44 @@
+mysql> select count(*)
+    -> FROM Entry
+    -> WHERE subtype = "phone" && contentLineOne LIKE "(3%%%%%%%%%%%%";
++----------+
+| count(*) |
++----------+
+|       39 |
++----------+
+1 row in set (0.00 sec)
+
+mysql> 
+
+////////////////////////////////////////////////
+
+mysql> select count(contentLineOne)
+    -> FROM Entry
+    -> WHERE type = "home" 
+    ->     && subtype = "phone" 
+    ->     && contentLineOne NOT LIKE "%5%";
++-----------------------+
+| count(contentLineOne) |
++-----------------------+
+|                    76 |
++-----------------------+
+1 row in set (0.01 sec)
+
+mysql> 
+
+///////////////////////////////////////////
+
+
+mysql> select count(contentLineOne)
+    -> FROM Entry
+    -> WHERE type = "work" 
+    ->     && subtype = "phone" 
+    ->     && contentLineOne LIKE "1-%";
++-----------------------+
+| count(contentLineOne) |
++-----------------------+
+|                    60 |
++-----------------------+
+1 row in set (0.00 sec)
+
+mysql> 
