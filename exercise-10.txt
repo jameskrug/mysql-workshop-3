@@ -1,0 +1,14 @@
+/////not sure if this is the intended method but it works////
+
+
+update ElectronicMail
+set type = ""
+where type = "home";
+
+update ElectronicMail
+set type = "home"
+where type = "work";
+
+update ElectronicMail
+set type = "work"
+where type = "";
