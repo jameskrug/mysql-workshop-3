@@ -1,0 +1,30 @@
+
+mysql> select content
+    ->     from Phone
+    ->     JOIN Entry ON (Phone.entryId = Entry.id)
+    ->     WHERE Entry.firstName = "Charlotte" && Entry.lastName = "Jenkins";
++----------------+
+| content        |
++----------------+
+| (110) 167-3420 |
+| (605) 175-1334 |
++----------------+
+2 rows in set (0.01 sec)
+
+
+
+///////////////// with type /////////////////////////////
+
+mysql> select Phone.type, content
+    ->     from Phone
+    ->     JOIN Entry ON (Phone.entryId = Entry.id)
+    ->     WHERE Entry.firstName = "Charlotte" && Entry.lastName = "Jenkins";
++-------+----------------+
+| type  | content        |
++-------+----------------+
+| other | (110) 167-3420 |
+| home  | (605) 175-1334 |
++-------+----------------+
+2 rows in set (0.01 sec)
+
+mysql> 
