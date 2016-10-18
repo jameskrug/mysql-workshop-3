@@ -1,0 +1,61 @@
+mysql> show tables;
++-----------------------+
+| Tables_in_challenge11 |
++-----------------------+
+| CustomerInformation   |
+| IncomingShipments     |
+| Invoices              |
+| Product               |
++-----------------------+
+
+mysql> describe CustomerInformation;
++---------------------+--------------+------+-----+---------+----------------+
+| Field               | Type         | Null | Key | Default | Extra          |
++---------------------+--------------+------+-----+---------+----------------+
+| id                  | int(11)      | NO   | PRI | NULL    | auto_increment |
+| customer_name       | varchar(100) | YES  |     | NULL    |                |
+| product_id          | int(11)      | YES  |     | NULL    |                |
+| contact_information | varchar(255) | YES  |     | NULL    |                |
+| amount_purchased    | int(11)      | YES  |     | NULL    |                |
+| country             | varchar(100) | YES  |     | NULL    |                |
++---------------------+--------------+------+-----+---------+----------------+
+6 rows in set (0.00 sec)
+
+mysql> describe IncomingShipments;
++------------+----------+------+-----+---------+----------------+
+| Field      | Type     | Null | Key | Default | Extra          |
++------------+----------+------+-----+---------+----------------+
+| id         | int(11)  | NO   | PRI | NULL    | auto_increment |
+| date       | datetime | YES  |     | NULL    |                |
+| product_id | int(11)  | YES  |     | NULL    |                |
+| amount     | int(11)  | YES  |     | NULL    |                |
++------------+----------+------+-----+---------+----------------+
+4 rows in set (0.00 sec)
+
+
+mysql> describe Invoices;
++--------------------+---------------------------+------+-----+---------+----------------+
+| Field              | Type                      | Null | Key | Default | Extra          |
++--------------------+---------------------------+------+-----+---------+----------------+
+| id                 | int(11)                   | NO   | PRI | NULL    | auto_increment |
+| product_id         | int(11)                   | YES  |     | NULL    |                |
+| sales              | int(11)                   | YES  |     | NULL    |                |
+| inventory          | int(11)                   | YES  |     | NULL    |                |
+| customer_id        | int(11)                   | YES  |     | NULL    |                |
+| time_sold          | datetime                  | YES  |     | NULL    |                |
+| purchase_or_return | enum('purchase','return') | YES  |     | NULL    |                |
++--------------------+---------------------------+------+-----+---------+----------------+
+7 rows in set (0.00 sec)
+
+mysql> describe Product;
++-----------------+--------------+------+-----+---------+----------------+
+| Field           | Type         | Null | Key | Default | Extra          |
++-----------------+--------------+------+-----+---------+----------------+
+| id              | int(11)      | NO   | PRI | NULL    | auto_increment |
+| product_name    | varchar(100) | YES  |     | NULL    |                |
+| total_sold      | int(11)      | YES  |     | NULL    |                |
+| total_inventory | int(11)      | YES  |     | NULL    |                |
+| product_price   | int(11)      | YES  |     | NULL    |                |
+| manufacturer    | varchar(100) | YES  |     | NULL    |                |
++-----------------+--------------+------+-----+---------+----------------+
+6 rows in set (0.00 sec)
